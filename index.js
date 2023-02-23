@@ -31,7 +31,7 @@ DatabaseUpdates.prototype.getFiles = function getFiles() {
   try {
     this.updateFiles = fs.readdirSync(this.updatePath)
       // exclude non-javascript files in the updates folder
-      .map(i => (path.extname(i) !== '.js' ? false : i))
+      .map(i => (!['.js', '.ts'].includes(path.extname(i)) ? false : i))
       // exclude falsy values and filenames that without a valid semver
       .filter(i => i && semver.valid(i.split('-')[0]))
       // exclude anything after a hyphen from the version number
