@@ -1,4 +1,4 @@
-const DatabaseUpdates = require('../index.js')
+const DatabaseUpdates = require('../index')
 const assert = require('assert')
 const logger = require('mc-logger')
 const MongoClient = require('mongodb').MongoClient
